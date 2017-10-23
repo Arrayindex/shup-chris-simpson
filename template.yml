@@ -28,3 +28,8 @@ Resources:
           Properties:
             Path: /
             Method: post
+        ChrisDoom:
+          Type: Api
+          Properties:
+            Path: /simpsons
+            Method: get

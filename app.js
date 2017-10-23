@@ -14,7 +14,7 @@ app.post('/', function(req, res) {
 });
 
 app.get('/simpsons/',function(req,res){
-  res.status(201).send({
+  res.send({
   "shup":chris
 }
   );

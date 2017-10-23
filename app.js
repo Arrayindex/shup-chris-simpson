@@ -30,7 +30,7 @@ app.get('/simpsons/:id', function(req, res) {
 });
 
 app.get('/simpsons/:id/phrases', function(req, res) {
-  res.send(_.find(phrases.data, {
+  res.send(_.filter(phrases.data, {
     'character': req.params.id
   }));
 });

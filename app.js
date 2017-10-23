@@ -20,7 +20,8 @@ app.post('/', function(req, res) {
 });
 
 app.get('/simpsons/', function(req, res) {
-  var characters = _.pick(raw.data, ['_id', 'firstName', 'lastName'])
+
+  var characters = _.map(raw.data, i => _.pick(i, '_id', 'firstName'))
   res.send(characters);
 });
 

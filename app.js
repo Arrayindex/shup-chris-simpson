@@ -20,7 +20,8 @@ app.post('/', function(req, res) {
 });
 
 app.get('/simpsons/', function(req, res) {
-  res.send(raw.data);
+  var characters = _.pick(raw.data, ['_id', 'firstName', 'lastName'])
+  res.send();
 });
 
 app.get('/simpsons/:id', function(req, res) {

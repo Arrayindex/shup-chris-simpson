@@ -15,10 +15,9 @@ app.post('/', function(req, res) {
 
 app.get('/simpsons/',function(req,res){
   res.status(201).send({
-{
   "shup":chris
 }
-  });
+  );
 });
 
 // Export your Express configuration so that it can be consumed by the Lambda handler

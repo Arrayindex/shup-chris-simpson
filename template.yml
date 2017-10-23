@@ -38,3 +38,8 @@ Resources:
           Properties:
             Path: /simpsons/{id}
             Method: get
+        GetQuote:
+          Type: Api
+          Properties:
+            Path: /simpsons/{id}/phrases
+            Method: get

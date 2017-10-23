@@ -28,8 +28,13 @@ Resources:
           Properties:
             Path: /
             Method: post
-        ChrisDoom:
+        GetAll:
           Type: Api
           Properties:
             Path: /simpsons
+            Method: get
+        GetOne:
+          Type: Api
+          Properties:
+            Path: /simpsons/{id}
             Method: get

@@ -23,7 +23,9 @@ app.get('/simpsons/', function(req, res) {
 });
 
 app.get('/simpsons/:id', function(req, res) {
-  res.send(req.params.id);
+  res.send(_.find(raw.data, {
+    '_id': req.params.id
+  }));
 })
 
 // Export your Express configuration so that it can be consumed by the Lambda handler

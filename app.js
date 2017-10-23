@@ -24,7 +24,7 @@ app.get('/simpsons/', function(req, res) {
 
 app.get('/simpsons/:id', function(req, res) {
   res.send(_.find(raw.data, {
-    '_id': id
+    '_id': req.params.id
   }));
 })
 

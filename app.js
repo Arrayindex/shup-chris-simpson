@@ -1,5 +1,4 @@
 var express = require('express');
-var bodyParser = require('body-parser');
 var _ = require('lodash');
 var app = express();
 
@@ -12,8 +11,11 @@ var ddb = new AWS.DynamoDB();
 AWS.config.region = process.env.REGION
 
 app.set('json spaces', 4);
-app.use(bodyParser.urlencoded({
-  extended: false
+
+var bodyParser = require('body-parser')
+app.use( bodyParser.json() );       // to support JSON-encoded bodies
+app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
+  extended: true
 }));
 
 function sendResponse(payload, req, res) {

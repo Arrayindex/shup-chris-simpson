@@ -70,10 +70,10 @@ app.get('/simpsons/:id', function(req, res) {
 });
 
 app.get('/simpsons/:id/phrases', function(req, res) {
-  var phrases = _.filter(phrases.data, {
+  var resultSet = _.filter(phrases.data, {
     'character': req.params.id
   });
-  sendResponse(phrases, req, res);
+  sendResponse(resultSet, req, res);
 });
 
 app.post('/user/phrase', function(req, res) {

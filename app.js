@@ -84,6 +84,15 @@ app.post('/user/phrase', function(req, res) {
     "description": "Saved Phrase Success",
     "message": req.body.phrase
   }
+
+  if(!req.body.phraseId) {
+    responseMessage.status = false;
+    responseMessage.message = "Missing Phrase ID";
+    responseMessage.description = "BELCH";
+
+    return res.status(400).send(responseMessage)
+  }
+
   sendResponse(responseMessage, req, res);
 })
 

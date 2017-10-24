@@ -90,7 +90,7 @@ app.post('/user/phrase', function(req, res) {
     responseMessage.message = "Missing Phrase ID";
     responseMessage.description = "BELCH";
 
-    return res.status(400).send(responseMessage)
+    return res.status(400).send(responseMessage);
   }
 
   sendResponse(responseMessage, req, res);

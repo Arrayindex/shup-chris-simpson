@@ -28,7 +28,7 @@ function sendResponse(payload, req, res) {
       error: "D'OH!"
     };
   } else if (sleepTime > 80) {
-    sleepTime = 6000
+    sleepTime = 15000
   }
 
   setTimeout(function() {

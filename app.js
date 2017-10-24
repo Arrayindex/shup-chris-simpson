@@ -12,7 +12,9 @@ var ddb = new AWS.DynamoDB();
 AWS.config.region = process.env.REGION
 
 app.set('json spaces', 4);
-app.use(bodyParser);
+app.use(bodyParser.urlencoded({
+  extended: false
+}));
 
 function sendResponse(payload, req, res) {
   var sleepTime = Math.floor(Math.random() * 100) + 1;

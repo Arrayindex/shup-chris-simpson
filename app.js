@@ -17,7 +17,7 @@ app.use(bodyParser.urlencoded({extended:false}));
 app.get('/', function(req, res) {
   res.send({
     "Output": "Hello World!",
-    "Region": process.env.REGION
+    "Region": process.env.REGION || 'Missing Region'
   });
 });
 

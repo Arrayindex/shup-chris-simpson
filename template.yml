@@ -37,7 +37,7 @@ Resources:
           Properties:
             Path: /
             Method: get
-        PostEvent:
+        WaitEvent:
           Type: Api
           Properties:
             Path: /wait

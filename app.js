@@ -76,5 +76,9 @@ app.get('/simpsons/:id/phrases', function(req, res) {
   sendResponse(phrases, req, res);
 });
 
+app.post('/user/phrase', function(req, res) {
+  return res.send(req.body);
+})
+
 // Export your Express configuration so that it can be consumed by the Lambda handler
 module.exports = app

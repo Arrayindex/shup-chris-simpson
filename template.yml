@@ -46,7 +46,7 @@ Resources:
         PostEvent:
           Type: Api
           Properties:
-            Path: /
+            Path: /user/phrase
             Method: post
         GetAll:
           Type: Api

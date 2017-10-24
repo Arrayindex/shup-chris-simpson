@@ -13,8 +13,8 @@ AWS.config.region = process.env.REGION
 app.set('json spaces', 4);
 
 var bodyParser = require('body-parser')
-app.use( bodyParser.json() );       // to support JSON-encoded bodies
-app.use(bodyParser.urlencoded({     // to support URL-encoded bodies
+app.use(bodyParser.json()); // to support JSON-encoded bodies
+app.use(bodyParser.urlencoded({ // to support URL-encoded bodies
   extended: true
 }));
 
@@ -79,7 +79,12 @@ app.get('/simpsons/:id/phrases', function(req, res) {
 });
 
 app.post('/user/phrase', function(req, res) {
-  return res.send(req.body);
+  var responseMessage = {
+    "status": true,
+    "description": "Saved Phrase Success",
+    "message": req.body.phrase
+  }
+  sendResponse(responseMessage, req, res);
 })
 
 // Export your Express configuration so that it can be consumed by the Lambda handler

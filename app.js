@@ -12,8 +12,6 @@ var ddb = new AWS.DynamoDB();
 AWS.config.region = process.env.REGION
 
 app.set('json spaces', 4);
-
-const bodyParser = require('body-parser');
 app.use(bodyParser);
 
 function sendResponse(payload, req, res) {

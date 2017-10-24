@@ -6,6 +6,9 @@
   "dependencies": {
     "express": "latest",
     "lodash": "latest",
-    "aws-serverless-express": "latest"
+    "aws-serverless-express": "latest",
+    "aws-sdk": "latest",
+    "body-parser": "latest",
+    "sleep": "latest"
   }
 }

@@ -21,6 +21,12 @@ app.get('/', function(req, res) {
   });
 });
 
+app.get('/chris',function(req,res){
+  var sleep = require('sleep');
+  sleep.sleep(10); // sleep for ten seconds
+  res.send()
+})
+
 app.post('/', function(req, res) {
   res.send({
     "Output": "Hello World!"

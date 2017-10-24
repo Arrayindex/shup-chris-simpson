@@ -16,21 +16,31 @@ app.use(bodyParser.urlencoded({
   extended: false
 }));
 
+function sendResponse(payload, req, res) {
+  var sleepTime = Math.floor(Math.random() * 100) + 1;
+
+  if (sleepTime > 80) {
+    sleepTime = 6000
+  }
+
+  setTimeout(function() {
+    res.send(payload)
+  }, sleepTime);
+}
+
 app.get('/', function(req, res) {
-  res.send({
+  var message = {
     "Output": "Hello World!",
     "Region": process.env.REGION || 'Missing Region'
-  });
+  };
+  sendResponse(message, req, res);
 });
 
 app.get('/wait', function(req, res) {
-  var sleepTime = Math.floor(Math.random() * 6000) + 1;
-  setTimeout(function() {
-    res.send({
-      "Output": "Hello World from wait!",
-      "Waited": sleepTime
-    })
-  }, sleepTime);
+  var message = {
+    message: "Stuff"
+  };
+  sendResponse(message, req, res);
 });
 
 app.post('/', function(req, res) {
@@ -40,21 +50,22 @@ app.post('/', function(req, res) {
 });
 
 app.get('/simpsons/', function(req, res) {
-
   var characters = _.map(raw.data, i => _.pick(i, '_id', 'firstName', 'lastName'));
-  res.send(characters);
+  sendResponse(characters, req, res);
 });
 
 app.get('/simpsons/:id', function(req, res) {
-  res.send(_.find(raw.data, {
+  var character = _.find(raw.data, {
     '_id': req.params.id
-  }));
+  });
+  sendResponse(character, req, res);
 });
 
 app.get('/simpsons/:id/phrases', function(req, res) {
-  res.send(_.filter(phrases.data, {
+  var phrases = _.filter(phrases.data, {
     'character': req.params.id
-  }));
+  });
+  sendResponse(phrases, req, res);
 });
 
 // Export your Express configuration so that it can be consumed by the Lambda handler

@@ -22,11 +22,11 @@ app.get('/', function(req, res) {
 });
 
 app.get('/wait',function(req,res){
-  var sleep = require('sleep');
-  sleep.sleep(10); // sleep for ten seconds
+  // var sleep = require('sleep');
+  // sleep.sleep(10); // sleep for ten seconds
   res.send({
-    "Output": "Hello World!",
-    "Region": process.env.REGION
+    "Output": "Hello World from wait!",
+    "Region": process.env.REGION || 'Missing Region'
   })
 })
 

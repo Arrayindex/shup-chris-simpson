@@ -14,33 +14,12 @@ Resources:
     Properties:
       AttributeDefinitions:
         -
-          AttributeName: "ArtistId"
-          AttributeType: "S"
-        -
-          AttributeName: "Concert"
-          AttributeType: "S"
-        -
-          AttributeName: "TicketSales"
+          AttributeName: "CandidateUUID"
           AttributeType: "S"
       KeySchema:
         -
-          AttributeName: "ArtistId"
+          AttributeName: "CandidateUUID"
           KeyType: "HASH"
-        -
-          AttributeName: "Concert"
-          KeyType: "RANGE"
-      GlobalSecondaryIndexes:
-        -
-          IndexName: "GSI"
-          KeySchema:
-            -
-              AttributeName: "TicketSales"
-              KeyType: "HASH"
-          Projection:
-            ProjectionType: "KEYS_ONLY"
-          ProvisionedThroughput:
-            ReadCapacityUnits: 5
-            WriteCapacityUnits: 5
       ProvisionedThroughput:
         ReadCapacityUnits: 5
         WriteCapacityUnits: 5

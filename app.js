@@ -1,15 +1,23 @@
 var express = require('express');
+var bodyParser = require('body-parser');
 var _ = require('lodash');
 var app = express();
 
 var raw = require('./data/characters.json');
-var phrases = require('./data/phrases.json')
+var phrases = require('./data/phrases.json');
+
+var AWS = require('aws-sdk');
+var ddb = new AWS.DynamoDB();
+
+AWS.config.region = process.env.REGION
 
 app.set('json spaces', 4);
+app.use(bodyParser.urlencoded({extended:false}));
 
 app.get('/', function(req, res) {
   res.send({
-    "Output": "Hello World!"
+    "Output": "Hello World!",
+    "Region": process.env.REGION
   });
 });
 

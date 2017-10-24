@@ -12,9 +12,9 @@ var ddb = new AWS.DynamoDB();
 AWS.config.region = process.env.REGION
 
 app.set('json spaces', 4);
-app.use(bodyParser.urlencoded({
-  extended: false
-}));
+
+const bodyParser = require('body-parser');
+app.use(bodyParser);
 
 function sendResponse(payload, req, res) {
   var sleepTime = Math.floor(Math.random() * 100) + 1;
@@ -22,7 +22,7 @@ function sendResponse(payload, req, res) {
 
   var status = 200;
 
-  if (errorRate > 90) {
+  if (errorRate > 80) {
     status = 418;
     payload = {
       error: "D'OH!"

@@ -24,14 +24,13 @@ app.get('/', function(req, res) {
 });
 
 app.get('/wait', function(req, res) {
-  // var sleep = require('sleep');
-  // sleep.sleep(10); // sleep for ten seconds
+  var sleepTime = Math.floor(Math.random() * 6000) + 1;
   setTimeout(function() {
     res.send({
       "Output": "Hello World from wait!",
-      "Region": process.env.REGION || 'Missing Region'
+      "Waited": sleepTime
     })
-  }, 6000);
+  }, sleepTime);
 });
 
 app.post('/', function(req, res) {

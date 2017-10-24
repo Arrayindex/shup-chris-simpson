@@ -40,6 +40,11 @@ Resources:
         PostEvent:
           Type: Api
           Properties:
+            Path: /wait
+            Method: post
+        PostEvent:
+          Type: Api
+          Properties:
             Path: /
             Method: post
         GetAll:

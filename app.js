@@ -21,10 +21,13 @@ app.get('/', function(req, res) {
   });
 });
 
-app.get('/chris',function(req,res){
+app.get('/wait',function(req,res){
   var sleep = require('sleep');
   sleep.sleep(10); // sleep for ten seconds
-  res.send()
+  res.send({
+    "Output": "Hello World!",
+    "Region": process.env.REGION
+  })
 })
 
 app.post('/', function(req, res) {

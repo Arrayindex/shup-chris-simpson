@@ -12,7 +12,9 @@ var ddb = new AWS.DynamoDB();
 AWS.config.region = process.env.REGION
 
 app.set('json spaces', 4);
-app.use(bodyParser.urlencoded({extended:false}));
+app.use(bodyParser.urlencoded({
+  extended: false
+}));
 
 app.get('/', function(req, res) {
   res.send({
@@ -21,14 +23,16 @@ app.get('/', function(req, res) {
   });
 });
 
-app.get('/wait',function(req,res){
+app.get('/wait', function(req, res) {
   // var sleep = require('sleep');
   // sleep.sleep(10); // sleep for ten seconds
-  res.send({
-    "Output": "Hello World from wait!",
-    "Region": process.env.REGION || 'Missing Region'
-  })
-})
+  setTimeout(function() {
+    res.send({
+      "Output": "Hello World from wait!",
+      "Region": process.env.REGION || 'Missing Region'
+    })
+  }, 6000);
+});
 
 app.post('/', function(req, res) {
   res.send({

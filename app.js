@@ -18,13 +18,21 @@ app.use(bodyParser.urlencoded({
 
 function sendResponse(payload, req, res) {
   var sleepTime = Math.floor(Math.random() * 100) + 1;
+  var errorRate = Math.floor(Math.random() * 100) + 1;
 
-  if (sleepTime > 80) {
+  var status = 200;
+
+  if (errorRate > 90) {
+    status = 418;
+    payload = {
+      error: "D'OH!"
+    };
+  } else if (sleepTime > 80) {
     sleepTime = 6000
   }
 
   setTimeout(function() {
-    res.send(payload)
+    res.status(status).send(payload)
   }, sleepTime);
 }
 

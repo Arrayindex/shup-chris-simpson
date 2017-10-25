@@ -24,7 +24,7 @@ function sendResponse(payload, req, res) {
 
   var status = 200;
 
-  if (errorRate > 80) {
+  if (errorRate > 90) {
     status = 418;
     payload = {
       error: "D'OH!"

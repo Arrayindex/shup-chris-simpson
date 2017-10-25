@@ -29,7 +29,7 @@ function sendResponse(payload, req, res) {
     payload = {
       error: "D'OH!"
     };
-  } else if (sleepTime > 80) {
+  } else if (sleepTime > 90) {
     sleepTime = 15000
   }
 

@@ -60,7 +60,7 @@ app.post('/', function(req, res) {
 });
 
 app.get('/simpsons/', function(req, res) {
-  var characters = _.map(raw.data, i => _.pick(i, '_id', 'firstName', 'lastName'));
+  var characters = _.map(raw.data, i => _.pick(i, '_id', 'firstName', 'lastName', 'picture'));
   sendResponse(characters, req, res);
 });
 
@@ -85,7 +85,7 @@ app.post('/user/phrase', function(req, res) {
     "message": req.body.phrase
   }
 
-  if(!req.body.phraseId) {
+  if (!req.body.phraseId) {
     responseMessage.status = false;
     responseMessage.message = "Missing Phrase ID";
     responseMessage.description = "BELCH";
